@@ -38,15 +38,15 @@ public class CommitsServiceTest {
     }
 
     @Before
-    public void createSwarmmanagerRepo() throws GitAPIException {
+    public void createSwarmmanagerRepo() throws GitAPIException, IOException {
+        deleteRepo();
         Git.cloneRepository()
                 .setURI("https://github.com/swarmbit/swarmmanager.git")
                 .setDirectory(Paths.get("repos/swarmbit/swarmmanager").toFile())
                 .call();
     }
 
-    @After
-    public void deleteRepo() throws IOException {
+    private void deleteRepo() throws IOException {
         FileUtils.deleteDirectory(new File("repos/swarmbit"));
     }
 }
