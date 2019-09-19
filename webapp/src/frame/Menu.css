@@ -1,0 +1,12 @@
+.menu {
+    width: 90px;
+    height: calc(100vh - 60px);
+    background-color: #edf5fc;
+    border-right: 1px solid #dbe6ec;
+}
+
+.menu-item {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 17px;
+}

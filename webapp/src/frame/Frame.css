@@ -1,0 +1,10 @@
+.frame {
+    display: flex;
+    flex-direction: row
+}
+
+.page {
+    padding: 80px;
+    display: inline-block;
+    flex: 2
+}

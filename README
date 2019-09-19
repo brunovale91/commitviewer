@@ -1,0 +1,7 @@
+Local repositories live in api/repos/{owner}/{repo}. Please clone the repo from github. Example:
+
+Create repos/swarmbit and clone "git clone https://github.com/swarmbit/swarmmanager.git" from there.
+
+To run the api execute (inside the api directory): mvn spring-boot:run. The api runs on port 8080.
+
+To run the webapp execute (inside the webapp directory): yarn start.

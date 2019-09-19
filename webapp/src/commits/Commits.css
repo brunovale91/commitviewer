@@ -1,0 +1,25 @@
+.repo-inputs label {
+    margin-right: 10px
+}
+
+.table {
+    margin: 20px;
+    width: 100%;
+}
+
+.table th {
+    text-align: left;
+}
+
+.table tbody{
+    display: block;
+    overflow-y: scroll;
+    height: 300px;
+    width: 100%;
+}
+
+.table tbody tr {
+    height: 50px;
+}
+
+
