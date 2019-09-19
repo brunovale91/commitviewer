@@ -4,9 +4,17 @@ import com.codacy.CommitViewer.git.CommitsDao;
 import com.codacy.CommitViewer.git.CommitsService;
 import com.codacy.CommitViewer.git.CommitsServiceImpl;
 import com.codacy.CommitViewer.model.Commit;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.internal.util.reflection.Whitebox;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -27,5 +35,18 @@ public class CommitsServiceTest {
 
         List<Commit> commits = commitsService.getCommits("swarmbit", "swarmmanager", 1);
         assertEquals(10, commits.size());
+    }
+
+    @Before
+    public void createSwarmmanagerRepo() throws GitAPIException {
+        Git.cloneRepository()
+                .setURI("https://github.com/swarmbit/swarmmanager.git")
+                .setDirectory(Paths.get("repos/swarmbit/swarmmanager").toFile())
+                .call();
+    }
+
+    @After
+    public void deleteRepo() throws IOException {
+        FileUtils.deleteDirectory(new File("repos/swarmbit"));
     }
 }

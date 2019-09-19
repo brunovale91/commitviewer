@@ -47,7 +47,8 @@ public class GithubCommitsDao implements CommitsDao {
         String id = (String) commitObj.get("sha");
         String message = (String) commitDesc.get("message");
         String authorEmail = (String) author.get("email");
-        ZonedDateTime dateTime = (ZonedDateTime) DateTimeFormatter.ISO_DATE_TIME.parse((CharSequence) author.get("date"));
+        String date = (String) author.get("date");
+        ZonedDateTime dateTime = ZonedDateTime.parse(date);
         int time = (int) dateTime.toEpochSecond();
         JSONArray parentsArray = (JSONArray) commitObj.get("parents");
         List<String> parents = new ArrayList<>();
